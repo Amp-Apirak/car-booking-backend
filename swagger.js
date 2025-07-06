@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000/api", // ✅ แก้ตาม base URL ของคุณ
+        url: "http://localhost:4000/api", // ✅ แก้ตาม base URL ของคุณ
         description: "Local Server",
       },
     ],

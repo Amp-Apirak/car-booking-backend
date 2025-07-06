@@ -58,7 +58,7 @@ const upload = multer({
 
 /**
  * @swagger
- * /api/system/settings:
+ * /system/settings:
  *   get:
  *     tags: [System Settings]
  *     summary: ดึงการตั้งค่าระบบ
@@ -82,7 +82,7 @@ router.get('/settings', getSettings);
 
 /**
  * @swagger
- * /api/system/settings/{key}:
+ * /system/settings/{key}:
  *   get:
  *     tags: [System Settings]
  *     summary: ดึงการตั้งค่าเฉพาะ key
@@ -103,7 +103,7 @@ router.get('/settings/:key', getSetting);
 
 /**
  * @swagger
- * /api/system/settings:
+ * /system/settings:
  *   post:
  *     tags: [System Settings]
  *     summary: อัพเดตการตั้งค่าระบบ
@@ -135,7 +135,7 @@ router.post('/settings', authMiddleware, updateSettings);
 
 /**
  * @swagger
- * /api/system/settings/{key}:
+ * /system/settings/{key}:
  *   put:
  *     tags: [System Settings]
  *     summary: อัพเดตการตั้งค่าเฉพาะ key
@@ -168,7 +168,7 @@ router.put('/settings/:key', authMiddleware, updateSetting);
 
 /**
  * @swagger
- * /api/system/upload-logo:
+ * /system/upload-logo:
  *   post:
  *     tags: [System Settings]
  *     summary: อัพโหลดโลโก้ระบบ
@@ -197,7 +197,7 @@ router.post('/upload-logo', authMiddleware, upload.single('logo'), uploadLogo);
 
 /**
  * @swagger
- * /api/system/logo:
+ * /system/logo:
  *   delete:
  *     tags: [System Settings]
  *     summary: ลบโลโก้ระบบ
