@@ -84,7 +84,7 @@ app.get("/", async (req, res) => {
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 /* ---------- เริ่มต้นเซิร์ฟเวอร์ ---------- */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () =>
   console.log(`🚀 Server รันที่ http://localhost:${PORT}`)
 );
