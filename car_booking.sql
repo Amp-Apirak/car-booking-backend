@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2025 at 01:19 PM
+-- Generation Time: Jul 06, 2025 at 05:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -328,9 +328,12 @@ INSERT INTO `refresh_tokens` (`token_id`, `user_id`, `token_hash`, `expired_at`,
 ('a09cb443-6eea-4b60-bfad-385fdb28ca0a', '036354d67ec34f9eb28cd26c8b2ec26e', 'c0a008b333fa5b4ad651b2d8994850b38741b6cb3f4c06e0486687795a2d7b45', '2025-07-06 05:02:41', NULL, '2025-06-29 05:02:41'),
 ('a3292fe4-f3bd-49ce-8af5-40f5c6ecdee0', '036354d67ec34f9eb28cd26c8b2ec26e', '4ce069fb63886a761855bc8685251c8d5e12012df80db766bacb01a3e9359de8', '2025-07-06 10:46:57', NULL, '2025-06-29 10:46:57'),
 ('a98ca90f-c20e-4fc0-98d7-9524e8d95ece', '3699f1ea64684ac78b02afd1fb9b3cdd', 'f2c87345e25c55084ec50c3f085759a546703dae386a103c0ca453d5c6c4ab9a', '2025-07-06 11:11:01', NULL, '2025-06-29 11:11:01'),
+('ac21c75c-45fd-4f1b-b300-15cbf31ae56c', '3699f1ea64684ac78b02afd1fb9b3cdd', '53428dbf555f0e3fc32e92e3f580d75bfa68a95f36ce8ee067c948a084d27897', '2025-07-06 12:56:03', NULL, '2025-06-29 12:56:03'),
 ('bd2c77bd-cf27-4ff6-9bb8-f400843d99da', 'aadaec379b964a44ac33896816f752ad', 'fe2e99d428ea85aaed75e903143024aec2c8a4edb848f0cffc735b20ca2c9c72', '2025-07-05 16:14:22', NULL, '2025-06-28 16:14:22'),
 ('cb65206b-5bea-4c78-ae69-0d5e737e4b89', '5ed0cce547ea4898aca5ee633449c2fb', 'c6532139a289aca1874014f59641d187abc3282c09e5ef672583db10739fb994', '2025-07-05 16:13:17', NULL, '2025-06-28 16:13:17'),
 ('d495edec-a904-4bb7-89d9-17e19fbe538a', '036354d67ec34f9eb28cd26c8b2ec26e', '250d337aecdde26c964dabdd55bffaf66b799b55b2bee0297a8bf3040cae1f7f', '2025-07-06 10:50:24', NULL, '2025-06-29 10:50:24'),
+('d55ab049-ce3c-4230-98f0-8017d62b48e2', '036354d67ec34f9eb28cd26c8b2ec26e', '55802cd14ea93fb19bb9879fa4d98ac7dbcbf7744fdd44e778fcd6328fa58dd1', '2025-07-06 12:55:48', NULL, '2025-06-29 12:55:48'),
+('de832e86-7320-4e4c-9ac5-9eecb1a9b923', '3699f1ea64684ac78b02afd1fb9b3cdd', '28f935991f51ae10a02213bbbe7353efc64a5bdfe0eee192dfb2706e83d2cb74', '2025-07-06 12:45:54', NULL, '2025-06-29 12:45:54'),
 ('e10479fa-7a0f-4609-b5b1-d1e2298a8fa0', '3699f1ea64684ac78b02afd1fb9b3cdd', 'b528c6f1fc385464c80998cdf67223301e4bf20f3c398b52f2ec439d750e57c7', '2025-07-05 16:14:02', NULL, '2025-06-28 16:14:02'),
 ('eca08e39-9a76-4fb5-bd33-efee42216498', '036354d67ec34f9eb28cd26c8b2ec26e', 'd92b3bb6df15007cea2bda1e2f58bebaac654c4f2e5a354c511619e2e13a3e99', '2025-07-06 09:46:46', NULL, '2025-06-29 09:46:46'),
 ('eef46306-bc9d-437c-852c-cfc2a8cfb6cc', '036354d67ec34f9eb28cd26c8b2ec26e', '30e4734af342c5ba261b12bc6b09f511eeace0b11eaf964d22671d5e115929fc', '2025-07-06 03:48:23', NULL, '2025-06-29 03:48:23'),
@@ -389,6 +392,58 @@ INSERT INTO `role_permissions` (`role_permission_id`, `role_id`, `permission_id`
 ('eee8c1853580498fa79aae99a6287e19', '7d8729453319497eb7630914179975b4', '6f6caa1d4d764e02b3ad938420d53bde', '2025-06-29 10:07:59'),
 ('efecfbf0b136419eaac8b716a972ff04', '0527b784f86b49a9b3e80084e9cf7ce5', '6f6caa1d4d764e02b3ad938420d53bde', '2025-06-29 10:07:43'),
 ('f099dec316a1441cbffcd71308da881b', '5e600f16228846a59f512dcda88b1fc0', '6f6caa1d4d764e02b3ad938420d53bde', '2025-06-28 16:09:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `system_files`
+--
+
+CREATE TABLE `system_files` (
+  `id` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `original_name` varchar(255) NOT NULL,
+  `file_path` varchar(500) NOT NULL,
+  `file_size` int(11) DEFAULT NULL,
+  `mime_type` varchar(100) DEFAULT NULL,
+  `file_type` enum('logo','favicon','background','other') DEFAULT 'other',
+  `uploaded_by` varchar(100) DEFAULT NULL COMMENT 'ชื่อผู้ใช้ที่อัพโหลด',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `system_settings`
+--
+
+CREATE TABLE `system_settings` (
+  `id` int(11) NOT NULL,
+  `setting_key` varchar(100) NOT NULL,
+  `setting_value` longtext DEFAULT NULL,
+  `setting_type` enum('string','number','boolean','json','file') DEFAULT 'string',
+  `description` varchar(255) DEFAULT NULL,
+  `is_public` tinyint(1) DEFAULT 0 COMMENT 'สามารถเข้าถึงได้โดยไม่ต้องล็อกอิน',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_by` varchar(100) DEFAULT NULL COMMENT 'ชื่อผู้ใช้ที่อัพเดต'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `system_settings`
+--
+
+INSERT INTO `system_settings` (`id`, `setting_key`, `setting_value`, `setting_type`, `description`, `is_public`, `created_at`, `updated_at`, `updated_by`) VALUES
+(1, 'system_name', 'ระบบจองรถยนต์', 'string', 'ชื่อระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(2, 'system_tagline', 'จัดการการจองอย่างมืออาชีพ', 'string', 'คำอธิบายระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(3, 'system_logo', '', 'string', 'URL โลโก้ระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(4, 'system_favicon', '', 'string', 'URL Favicon', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(5, 'system_primary_color', '#3b82f6', 'string', 'สีหลักของระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(6, 'system_timezone', 'Asia/Bangkok', 'string', 'เขตเวลาของระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(7, 'system_language', 'th', 'string', 'ภาษาเริ่มต้นของระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(8, 'system_currency', 'THB', 'string', 'สกุลเงินของระบบ', 1, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(9, 'maintenance_mode', 'false', 'boolean', 'โหมดบำรุงรักษา', 0, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL),
+(10, 'registration_enabled', 'true', 'boolean', 'เปิดให้ลงทะเบียนได้', 0, '2025-07-06 15:27:49', '2025-07-06 15:30:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -727,6 +782,22 @@ ALTER TABLE `role_permissions`
   ADD KEY `fk_rp_permission` (`permission_id`);
 
 --
+-- Indexes for table `system_files`
+--
+ALTER TABLE `system_files`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_file_type` (`file_type`);
+
+--
+-- Indexes for table `system_settings`
+--
+ALTER TABLE `system_settings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `setting_key` (`setting_key`),
+  ADD KEY `idx_setting_key` (`setting_key`),
+  ADD KEY `idx_is_public` (`is_public`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -779,6 +850,22 @@ ALTER TABLE `vehicle_equipments`
 --
 ALTER TABLE `vehicle_types`
   ADD PRIMARY KEY (`type_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `system_files`
+--
+ALTER TABLE `system_files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `system_settings`
+--
+ALTER TABLE `system_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
